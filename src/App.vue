@@ -1,46 +1,48 @@
 <script>
 import axios from 'axios'
 import {store} from './store'
+import AppHeader from './components/AppHeader.vue'
+import AppMain from './components/AppMain.vue'
 export default {
+  components : {AppHeader, AppMain},
+
   data (){
     return {
       store,
-      searchProduct: '',
       apiUri: 'https://api.themoviedb.org/3/search/movie?api_key=a98e974a1dcb89c6e968d61b061b2de8&query=all',
-      movies: [],
-      series: []
       
     }
   },
+
   methods: {
       fetchMovie(url) {
         axios.get(url)
         .then((res) => {
-        this.movies = res.data.results;
+        store.movies = res.data.results;
       });
       },
 
       fetchSeries(url) {
         axios.get(url)
         .then((res) => {
-        this.series = res.data.results;
+        store.series = res.data.results;
       });
       },
 
-      onTypeSearch(){
-        const movieUri = `https://api.themoviedb.org/3/search/movie?api_key=a98e974a1dcb89c6e968d61b061b2de8&query=${this.searchMovie}`
+      onProductSearch(searchProduct){
+        const movieUri = `https://api.themoviedb.org/3/search/movie?api_key=a98e974a1dcb89c6e968d61b061b2de8&query=${searchProduct}`
         this.fetchMovie(movieUri);
 
-        const seriesUri = `https://api.themoviedb.org/3/search/tv?api_key=a98e974a1dcb89c6e968d61b061b2de8&query=${this.searchMovie}`
+        const seriesUri = `https://api.themoviedb.org/3/search/tv?api_key=a98e974a1dcb89c6e968d61b061b2de8&query=${searchProduct}`
         this.fetchSeries(seriesUri)
       },
 
-      cleanInput(){
-        if (this.searchMovie === ''){
-          this.movies = []
-          this.series = []
+      cleanInput(searchProduct){
+        if (searchProduct === ''){
+          store.movies = []
+          store.series = []
         }
-      },
+      }
   },
 }
 </script>
@@ -49,18 +51,13 @@ export default {
 
 
 <template>
-  <h1 class="text-danger">
-    Boolflix
-  </h1>
+ <app-header @product-search="onProductSearch" @clean-input="cleanInput"></app-header>
 
-  <div class="input-group flex-nowrap w-25">
-    <input @keyup="cleanInput" @keyup.enter="onTypeSearch" v-model.trim="searchMovie" type="text" class="form-control" placeholder="Search a Movie" aria-label="Username" aria-describedby="addon-wrapping">
-    <button @click="onTypeSearch" class="btn btn-success">Search</button>
-  </div>
+  
     <div class="movies">
       <h1>Movies:</h1>
       <ul> 
-        <li v-for="movie in movies">
+        <li v-for="movie in store.movies">
           <figure>
             <img :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt="">
           </figure>
@@ -108,4 +105,9 @@ export default {
     height: 25px;
     width: 35px;
   }
+
+  ul {
+    list-style-type: none;
+  }
+
 </style>
