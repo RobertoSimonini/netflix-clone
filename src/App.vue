@@ -28,7 +28,7 @@ export default {
         if (this.searchMovie === ''){
           this.movies = []
         }
-      }
+      },
   },
 }
 </script>
@@ -54,9 +54,7 @@ export default {
       <div>
           {{ movie.original_title }}        
       </div>
-      <div>
-          {{ movie.original_language }}        
-      </div>
+      <img class="img-fluid flag" :src="`/src/assets/img/${movie.original_language}.png`">  
       <div>
           {{ movie.vote_average }}        
       </div>
@@ -66,6 +64,8 @@ export default {
 </template>
 
 
-<style>
-
+<style> 
+  .flag {
+    height: 25px;
+  }
 </style>
