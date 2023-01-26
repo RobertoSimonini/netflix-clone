@@ -58,9 +58,12 @@ export default {
     <button @click="onTypeSearch" class="btn btn-success">Search</button>
   </div>
     <div class="movies">
-      <h1>Movies</h1>
+      <h1>Movies:</h1>
       <ul> 
         <li v-for="movie in movies">
+          <figure>
+            <img :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt="">
+          </figure>
           <div>
               {{ movie.title }}        
           </div>
@@ -76,7 +79,7 @@ export default {
     </div>
 
     <div class="series">
-      <h1>Series</h1>
+      <h1>Series:</h1>
       <ul>
         <li v-for="serie in series">
           <div>
@@ -85,7 +88,7 @@ export default {
           <div>
               {{ serie.original_name }}        
           </div>
-          <img class="img-fluid flag" :src="`/src/assets/img/${serie.original_language}.png`">  
+          <img class="img-fluid flag" :src="`/src/assets/img/${serie.original_language}.png`">
           <div>
               {{ serie.vote_average }}        
           </div>
