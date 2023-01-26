@@ -22,6 +22,12 @@ export default {
       onTypeSearch(){
         const apiUri = `https://api.themoviedb.org/3/search/movie?api_key=a98e974a1dcb89c6e968d61b061b2de8&query=${this.searchMovie}`
         this.fetchMovie(apiUri)
+      },
+
+      cleanInput(){
+        if (this.searchMovie === ''){
+          this.movies = []
+        }
       }
   },
 }
@@ -32,14 +38,15 @@ export default {
 
 <template>
   <h1 class="text-danger">
-    Hello Boolflix
+    Boolflix
   </h1>
 
   <div class="input-group flex-nowrap w-25">
-    <input  @keyup="onTypeSearch" v-model.trim="searchMovie" type="text" class="form-control" placeholder="Search a Movie" aria-label="Username" aria-describedby="addon-wrapping">
+    <input @keyup="cleanInput" @keyup.enter="onTypeSearch" v-model.trim="searchMovie" type="text" class="form-control" placeholder="Search a Movie" aria-label="Username" aria-describedby="addon-wrapping">
+    <button @click="onTypeSearch" class="btn btn-success">Search</button>
   </div>
 
-  <ul v-if="searchMovie"> 
+  <ul> 
     <li v-for="movie in movies">
       <div>
           {{ movie.title }}        
