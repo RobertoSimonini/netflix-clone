@@ -18,11 +18,12 @@ export default {
         this.movies = res.data.results;
       });
       },
-  },
 
-  created() {
-    this.fetchMovie(this.apiUri);
-  }
+      onTypeSearch(){
+        const apiUri = `https://api.themoviedb.org/3/search/movie?api_key=a98e974a1dcb89c6e968d61b061b2de8&query=${this.searchMovie}`
+        this.fetchMovie(apiUri)
+      }
+  },
 }
 </script>
 
@@ -35,10 +36,10 @@ export default {
   </h1>
 
   <div class="input-group flex-nowrap w-25">
-    <input v-model="searchMovie" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+    <input  @keyup="onTypeSearch" v-model.trim="searchMovie" type="text" class="form-control" placeholder="Search a Movie" aria-label="Username" aria-describedby="addon-wrapping">
   </div>
 
-  <ul>
+  <ul v-if="searchMovie"> 
     <li v-for="movie in movies">
       <div>
           {{ movie.title }}        
