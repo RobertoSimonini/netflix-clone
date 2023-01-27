@@ -88,6 +88,7 @@
   .full-star {
     position: absolute;
     top: 0;
+    color: gold;
   }
 
   
