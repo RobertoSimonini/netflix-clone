@@ -6,7 +6,7 @@ export default {
         title: String,
         original_title: String,
         original_language: String,
-        vote_average: String,
+        vote_average: Number,
 
         name: String,
         original_name: String,
@@ -52,6 +52,15 @@ export default {
 
 
 
-<style>
+<style lang="scss" scoped>
+    .empty-star {
+    position: relative;
+  }
+
+  .full-star {
+    position: absolute;
+    top: 0;
+    color: gold;
+  }
 </style>
 

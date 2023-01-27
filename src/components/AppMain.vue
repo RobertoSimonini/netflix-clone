@@ -16,7 +16,7 @@
 <template>
     <div class="movies">
       <h1>Movies:</h1>
-          <product-card v-for="movie in store.movies" v-bind="movie"></product-card>
+          <product-card v-for="movie in store.movies" v-bind="movie" key=""></product-card>
     </div>
 
     <div class="series">
@@ -28,16 +28,6 @@
 </template>
 
 
-<style>
-  .empty-star {
-    position: relative;
-  }
-
-  .full-star {
-    position: absolute;
-    top: 0;
-    color: gold;
-  }
-
+<style scoped>
   
 </style>
