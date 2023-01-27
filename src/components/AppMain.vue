@@ -18,7 +18,7 @@
       <section class="product-container" v-if="store.movies.length || store.series.length">
         <div class="movies">
             <h1 class="text-white">Film</h1>
-            <div class="row g-1">
+            <div class="row g-2">
               <product-card v-for="movie in store.movies" :product="movie" key=""></product-card>
             </div>
         </div>
