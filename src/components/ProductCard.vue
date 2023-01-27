@@ -16,17 +16,17 @@ export default {
 
 
 <template>
-    <div class="product-card">
-        <figure  @mouseover="hover = true" @mouseleave="hover = false">
+    <div class="product-card text-center" v-if="product.poster_path">
+        <figure>
             <img class="card-cover" :src="`https://image.tmdb.org/t/p/w342/${product.poster_path}`" :alt="product.title">
 
-            <div v-if="hover" class="content h-100 w-100 d-flex flex-column align-items-center p-3">
+            <div class="content h-100 w-100 d-flex flex-column align-items-center p-3">
                 <div>
-                    <h2>
-                        {{ product.title || product.name }}        
-                    </h2>
+                    <h3>
+                        Titolo: {{ product.title || product.name }}        
+                    </h3>
                     <h4>
-                       ({{ product.original_title || product.original_name }})         
+                       Titolo originale: {{ product.original_title || product.original_name }})        
                     </h4>
                 </div>
                 <img class="img-fluid flag" :src="`/src/assets/img/${product.original_language}.png`">
@@ -64,13 +64,14 @@ export default {
 
 <style lang="scss" scoped>
 
+
+
     figure {
         position: relative;
-       
 
         .card-cover {
             max-width: 20vw;
-            height: 600px;
+            height: 650px;
         }
 
         .content {
@@ -78,15 +79,34 @@ export default {
             top: 0;
             left: 0;
             color: white;
-            background-color: black;
-            overflow-y: auto;
-            overflow-x: hidden;
+            opacity: 0;
+            transition: 0.25s;
 
             *{
                 padding: 10px 0;
             }
         }
+
     }
+
+.product-card {
+    flex-basis: 25%;
+    cursor: pointer;
+}
+
+
+.product-card:hover .content {
+    background-color: rgba(black, 0.75);
+    overflow-y: auto;
+    overflow-x: hidden;
+    opacity: 1;
+}
+
+.flag {
+    height: 45px;
+    width: 50px;
+}
+
 
 .empty-star {
     position: relative;
@@ -98,9 +118,6 @@ export default {
     color: gold;
 }
 
-  .product-card {
-    flex-basis: 25%;
-    cursor: pointer;
-  }
+
 </style>
 

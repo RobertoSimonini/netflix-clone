@@ -63,11 +63,6 @@ export default {
 
 
 <style>
-  .flag {
-    height: 25px;
-    width: 35px;
-  }
-
   ul {
     list-style-type: none;
   }
