@@ -53,8 +53,8 @@ export default {
 
 
 <template>
- <app-header @product-search="onProductSearch" @clean-input="cleanInput"></app-header>
- <app-main></app-main>
+    <app-header @product-search="onProductSearch" @clean-input="cleanInput"></app-header>
+    <app-main></app-main>
 
   
     

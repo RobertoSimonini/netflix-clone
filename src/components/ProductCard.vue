@@ -11,7 +11,6 @@ export default {
 
 
 <template>
-        <main>
             <figure>
                 <img :src="`https://image.tmdb.org/t/p/w342/${product.poster_path}`" :alt="product.title">
             </figure>
@@ -23,8 +22,6 @@ export default {
             </div>
             <img class="img-fluid flag" :src="`/src/assets/img/${product.original_language}.png`">
             
-            
-    
             <div>
                 <!-- Qui metto le stelle vuote che saranno riemptive assolutamente e dinamicamente da quelle piene  -->
                 <div class="empty-star">
@@ -39,7 +36,6 @@ export default {
                     </div>
                 </div>
             </div>
-        </main>
 
 </template>
 

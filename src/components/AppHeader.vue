@@ -25,9 +25,9 @@ export default {
 
 
 <template>
-    <header class="d-flex justify-content-between align-items-center px-4">
+    <header class="d-flex justify-content-between align-items-center px-5">
         <h1 class="text-danger">
-            Boolflix
+            BOOLFLIX
         </h1>
     
         <div class="input-group flex-nowrap w-25">
