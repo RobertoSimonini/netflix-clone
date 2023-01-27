@@ -25,7 +25,7 @@ export default {
 
 
 <template>
-    <header class="d-flex justify-content-between align-items-center px-5">
+    <header class="d-flex justify-content-between align-items-center">
         <h1 class="text-danger">
             BOOLFLIX
         </h1>
@@ -46,6 +46,7 @@ export default {
 
 <style scoped>
     header {
+        padding: 0 7.5%;
         height: 100px;
         background-color: black;
     }

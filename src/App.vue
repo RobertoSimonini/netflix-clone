@@ -62,7 +62,7 @@ export default {
 </template>
 
 
-<style> 
+<style>
   .flag {
     height: 25px;
     width: 35px;
