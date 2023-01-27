@@ -30,7 +30,7 @@ export default {
         </h1>
     
         <div class="input-group flex-nowrap w-25">
-            <input @keyup="$emit('clean-input', searchProduct)" @keyup.enter="$emit('product-search', searchProduct)" v-model.trim="searchProduct" type="text" class="form-control" placeholder="Search a Movie" aria-label="Username" aria-describedby="addon-wrapping">
+            <input @keyup="$emit('clean-input', searchProduct)" @keyup.enter="$emit('product-search', searchProduct)" v-model.trim="searchProduct" type="text" class="form-control" placeholder="Search a Product" aria-label="Username" aria-describedby="addon-wrapping">
             <button @click="$emit('product-search', searchProduct)" class="btn btn-danger">Cerca</button>
         </div>
     </header>
