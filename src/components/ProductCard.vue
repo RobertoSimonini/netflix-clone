@@ -16,11 +16,11 @@ export default {
 
 
 <template>
-    <div class="product-card text-center" v-if="product.poster_path">
+    <div class="product-card" v-if="product.poster_path">
         <figure>
             <img class="card-cover" :src="`https://image.tmdb.org/t/p/w342/${product.poster_path}`" :alt="product.title">
 
-            <div class="content h-100 w-100 d-flex flex-column align-items-center p-3">
+            <div class="content h-100 w-100 d-flex flex-column p-3">
                 <div>
                     <h3>
                         Titolo: {{ product.title || product.name }}        
@@ -97,10 +97,11 @@ export default {
 
 .product-card:hover .content {
     background-color: rgba(black, 0.75);
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     opacity: 1;
 }
+
 
 .flag {
     height: 45px;
