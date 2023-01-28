@@ -68,7 +68,7 @@ export default {
 
 figure {
     position: relative;
-
+    
     .card-cover {
             width: 20vw;
             height: 650px;
@@ -81,6 +81,7 @@ figure {
             color: white;
             opacity: 0;
             transition: 0.25s;
+            overflow-y: hidden;
 
         *{
             padding: 10px 0;
@@ -91,17 +92,15 @@ figure {
 
 .product-card {
     flex-basis: 25%;
-    overflow-y: hidden;
     cursor: pointer;
-
+   
 }
 
 
 .product-card:hover .content {
     background-color: rgba(black, 0.75);
-    overflow-y: scroll;
+    overflow-y: auto;
     opacity: 1;
-
 }
 
 

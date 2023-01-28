@@ -10,7 +10,8 @@ export default {
   data (){
     return {
       store,
-      apiUri: 'https://api.themoviedb.org/3/search/movie?api_key=a98e974a1dcb89c6e968d61b061b2de8&query=all',
+      baseUri: 'https://api.themoviedb.org/3',
+      apiKey: 'api_key=a98e974a1dcb89c6e968d61b061b2de8'
       
     }
   },
@@ -31,10 +32,10 @@ export default {
       },
 
       onProductSearch(searchProduct){
-        const movieUri = `https://api.themoviedb.org/3/search/movie?api_key=a98e974a1dcb89c6e968d61b061b2de8&query=${searchProduct}`
+        const movieUri = `${this.baseUri}/search/movie?${this.apiKey}&query=${searchProduct}`
         this.fetchMovie(movieUri);
 
-        const seriesUri = `https://api.themoviedb.org/3/search/tv?api_key=a98e974a1dcb89c6e968d61b061b2de8&query=${searchProduct}`
+        const seriesUri = `${this.baseUri}/search/tv?${this.apiKey}&query=${searchProduct}`
         this.fetchSeries(seriesUri)
       },
 
