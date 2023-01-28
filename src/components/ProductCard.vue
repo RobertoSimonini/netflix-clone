@@ -66,15 +66,15 @@ export default {
 
 
 
-    figure {
-        position: relative;
+figure {
+    position: relative;
 
-        .card-cover {
-            max-width: 20vw;
+    .card-cover {
+            width: 20vw;
             height: 650px;
-        }
+    }
 
-        .content {
+    .content {
             position: absolute;
             top: 0;
             left: 0;
@@ -82,24 +82,26 @@ export default {
             opacity: 0;
             transition: 0.25s;
 
-            *{
-                padding: 10px 0;
-            }
+        *{
+            padding: 10px 0;
         }
+    }
 
     }
 
 .product-card {
     flex-basis: 25%;
+    overflow-y: hidden;
     cursor: pointer;
+
 }
 
 
 .product-card:hover .content {
     background-color: rgba(black, 0.75);
     overflow-y: scroll;
-    overflow-x: hidden;
     opacity: 1;
+
 }
 
 

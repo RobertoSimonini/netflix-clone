@@ -63,6 +63,7 @@ export default {
 
 
 <style>
+    
   ul {
     list-style-type: none;
   }
