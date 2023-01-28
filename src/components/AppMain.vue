@@ -19,14 +19,15 @@
         <div class="movies">
             <h1 class="text-white">Film</h1>
             <div class="row g-2">
-              <product-card v-for="movie in store.movies" :product="movie" key=""></product-card>
+              <product-card v-for="movie in store.movies" :product="movie" 
+              :key="movie.id"></product-card>
             </div>
         </div>
     
         <div class="series">
             <h1 class="text-white">Series</h1>
             <div class="row">
-              <product-card v-for="serie in store.series"  :product="serie"></product-card>
+              <product-card v-for="serie in store.series" :key="serie.id" :product="serie"></product-card>
             </div>
         </div>
       </section>
