@@ -29,7 +29,7 @@ export default {
                        Titolo originale: {{ product.original_title || product.original_name }})        
                     </h4>
                 </div>
-                <img class="img-fluid flag" :src="`/src/assets/img/${product.original_language}.png`">
+                <img class="img-fluid flag" :src="`/src/assets/img/flags/${product.original_language}.png`">
                 
                 <div>
                     <!-- Qui metto le stelle vuote che saranno riemptive assolutamente e dinamicamente da quelle piene  -->
@@ -99,7 +99,7 @@ figure {
 
 .product-card:hover .content {
     background-color: rgba(black, 0.75);
-    overflow-y: auto;
+    overflow-y: scroll;
     opacity: 1;
 }
 
