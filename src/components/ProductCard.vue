@@ -34,7 +34,7 @@ export default {
         <div class="product-card">
             <img class="card-cover" :src="`https://image.tmdb.org/t/p/w342/${product.poster_path}`" :alt="product.title">
             
-            <div class="content h-100 w-100 d-flex flex-column p-3">
+            <div class="content h-100 w-100 d-flex text-center align-items-center flex-column p-3">
                 <div>
                     <h3>
                         Titolo: {{ title }}        
@@ -47,13 +47,8 @@ export default {
                 
                 <div>
                     <!-- Qui metto le stelle vuote che saranno riemptive assolutamente e dinamicamente da quelle piene  -->
-                    <div class="empty-star">
-                        <i v-for="n in 5" class="fa-regular fa-star"></i>
-                        
-                        
-                        <div class="full-star">
-                            <i v-for="n in roundedVote" class="fa-solid fa-star"></i>
-                        </div>     
+                    <div class="rating">
+                        <i v-for="n in 5" :class=" n <= roundedVote ? 'fa-solid': 'fa-regular'" class="fa-star"></i>  
                     </div>
                     
                     <div class="overview">
@@ -87,7 +82,7 @@ export default {
     width: 97.5%;
     height: 100%;
     transform-style: preserve-3d;
-    transition: transform 0.5s;
+    transition: transform 0.75s;
     transition-delay: 0.25s;
     
 }
@@ -140,15 +135,7 @@ export default {
     height: 45px;
     width: 50px;
 }
-
-
-.empty-star {
-    position: relative;
-}
-
-.full-star {
-    position: absolute;
-    top: 0;
+.rating .fa-solid {
     color: gold;
 }
 
