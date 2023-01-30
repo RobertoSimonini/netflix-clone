@@ -16,8 +16,8 @@ export default {
 
 
 <template>
-    <div class="product-card" v-if="product.poster_path">
-        <figure>
+    <div class="card-wrapper" v-if="product.poster_path">
+        <div class="product-card">
             <img class="card-cover" :src="`https://image.tmdb.org/t/p/w342/${product.poster_path}`" :alt="product.title">
             
             <div class="content h-100 w-100 d-flex flex-column p-3">
@@ -51,7 +51,7 @@ export default {
                     
                 </div>
             </div>
-        </figure>   
+        </div>
     </div>
         
 </template>
@@ -60,19 +60,17 @@ export default {
 
 <style lang="scss" scoped>
 
-.product-card {
-    flex-basis: 23%;
+.card-wrapper {
+    flex-basis: 25%;
     position: relative;
-    width: 20vw;
-    height: 650px;
-    margin: 1rem;
+    width: 25vw;
+    height: 600px;
 }
 
 
-figure {
+.product-card {
     position: absolute;
-    cursor: pointer;
-    width: 100%;
+    width: 97.5%;
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 0.5s;
@@ -80,21 +78,23 @@ figure {
     
 }
 
-figure:hover{
+.product-card:hover{
+    cursor: grabbing;
     transform: rotateY(180deg);
 }
 
 .card-cover {
     position: absolute;
-    width: 100%;
+    width: 97.5%;
     height: 100%;
     backface-visibility: hidden;
 
 }
 
 .content {
+            cursor: auto;
             position: absolute;
-            width: 100%;
+            width: 97.5%;
             height: 100%;
             backface-visibility: hidden;
             transform: rotateY(180deg);
