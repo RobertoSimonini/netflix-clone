@@ -26,7 +26,7 @@
     
         <div class="series">
             <h1 class="text-white">Series</h1>
-            <div class="row">
+            <div class="row g-2">
               <product-card v-for="serie in store.series" :key="serie.id" :product="serie"></product-card>
             </div>
         </div>

@@ -34,11 +34,8 @@ export default {
                 <div>
                     <!-- Qui metto le stelle vuote che saranno riemptive assolutamente e dinamicamente da quelle piene  -->
                     <div class="empty-star">
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                        <i v-for="n in 5" class="fa-regular fa-star"></i>
+                       
                     
                         <div class="full-star">
                             <i v-for="n in Math.ceil(product.vote_average / 2)" class="fa-solid fa-star"></i>
@@ -54,7 +51,6 @@ export default {
 
                 </div>
             </div>
-
         </figure>   
     </div>
 
@@ -68,6 +64,7 @@ export default {
 
 figure {
     position: relative;
+    cursor: pointer;
     
     .card-cover {
             width: 20vw;
@@ -92,14 +89,13 @@ figure {
 
 .product-card {
     flex-basis: 25%;
-    cursor: pointer;
    
 }
 
 
-.product-card:hover .content {
-    background-color: rgba(black, 0.75);
-    overflow-y: scroll;
+figure:hover .content {
+    background-color: black;
+    overflow-y: auto;
     opacity: 1;
 }
 
