@@ -8,6 +8,20 @@ export default {
         return {
             hover: false
         }
+    },
+    computed: {
+        title (){
+            return this.product.title || this.product.name;
+        },
+        originalTitle (){
+            return this.product.original_title || this.product.original_name;
+        },
+        roundedVote (){
+            return Math.ceil(this.product.vote_average / 2);
+        },
+        overView (){
+            return this.product.overview;
+        }
     }
 }
 
@@ -23,10 +37,10 @@ export default {
             <div class="content h-100 w-100 d-flex flex-column p-3">
                 <div>
                     <h3>
-                        Titolo: {{ product.title || product.name }}        
+                        Titolo: {{ title }}        
                     </h3>
                     <h4>
-                        Titolo originale: {{ product.original_title || product.original_name }})        
+                        Titolo originale: {{ originalTitle }}   
                     </h4>
                 </div>
                 <img class="img-fluid flag" :src="`/src/assets/img/flags/${product.original_language}.png`">
@@ -38,14 +52,14 @@ export default {
                         
                         
                         <div class="full-star">
-                            <i v-for="n in Math.ceil(product.vote_average / 2)" class="fa-solid fa-star"></i>
+                            <i v-for="n in roundedVote" class="fa-solid fa-star"></i>
                         </div>     
                     </div>
                     
-                    <div>
-                        <h3> Trama </h3>
+                    <div class="overview">
+                        <h3> Trama: </h3>
                         <p>
-                            {{ product.overview }}
+                            {{ overView }}
                         </p>           
                     </div>
                     
@@ -106,6 +120,18 @@ export default {
 
         *{
             padding: 10px 0;
+        }
+
+        .overview{
+            padding: 0;
+
+            h3{
+                padding-bottom: 0;
+            }
+
+            p {
+                padding-top: 0;
+            }
         }
 }
 
